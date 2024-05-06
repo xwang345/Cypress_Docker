@@ -1,18 +1,20 @@
 import { defineConfig } from "cypress";
+const cypressSplit = require('cypress-split')
 
 export default defineConfig({
   e2e: {
-    reporter: 'cypress-mochawesome-reporter',
+    reporter: 'mochawesome',
     reporterOptions: {
-      charts: true,
-      reportPageTitle: 'custom-title',
-      embeddedScreenshots: true,
-      inlineAssets: true,
-      saveAllAttempts: false,
+      reportDir: 'cypress/results',
+      reportFilename: '[name].html',
+      overwrite: true,
+      html: true,
+      json: true,
     },
     video: true,
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
+      cypressSplit(on, config)
+      return config
     },
     testIsolation: false,
     downloadsFolder: "cypress/downloads",

@@ -1,5 +1,5 @@
 node_modules
 cypress.json
-cypress/reports
+cypress/results
 cypress/screenshots
 cypress/videos

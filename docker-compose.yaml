@@ -1,0 +1,14 @@
+version: '3'
+services:
+  jenkins:
+    image: 'jenkins/jenkins:lts'
+    # run as root user to avoid permission issues
+    user: root
+    # Map the ports to the host machine
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    # Mount the volume to persist the data
+    volumes:
+      - './jenkins-ci-cd/volumns/master:/var/jenkins_home'
+      

@@ -3,3 +3,4 @@ cypress.json
 cypress/results
 cypress/screenshots
 cypress/videos
+jenkins-ci-cd
